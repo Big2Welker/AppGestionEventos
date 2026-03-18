@@ -28,9 +28,9 @@ Sistema web para la gestión de eventos académicos, desarrollado con **FastAPI*
 ---
 
 Actualmente, las instituciones universitarias enfrentan retos significativos al gestionar sus actividades académicas y culturales de forma manual o desintegrada. Esta situación genera una serie de inconvenientes críticos:
-•	Descontrol Informativo: Dificultad para registrar, organizar y evaluar las actividades institucionales.
-•	Información Fragmentada: Los datos se encuentran dispersos, impidiendo un análisis posterior efectivo.
-•	Falta de Visibilidad: Es complicado identificar métricas clave, como el uso de instalaciones o la cantidad de eventos aprobados por facultad.
+ * Descontrol Informativo: Dificultad para registrar, organizar y evaluar las actividades institucionales.
+ * Información Fragmentada: Los datos se encuentran dispersos, impidiendo un análisis posterior efectivo.
+ * Falta de Visibilidad: Es complicado identificar métricas clave, como el uso de instalaciones o la cantidad de eventos aprobados por facultad.
 
 
 ## Descripción del proyecto
@@ -554,13 +554,3 @@ Revisar:
 * cadena de conexión correcta
 
 ---
-
-## Autores
-
-Proyecto académico desarrollado para el despliegue de una aplicación web distribuida con frontend, backend y base de datos en la nube.
-
----
-
-## Licencia
-
-Uso académico.
