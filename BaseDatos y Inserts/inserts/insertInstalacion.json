@@ -1,0 +1,24 @@
+db.instalacion.insertMany([
+    { _id: "SAL-A101", ubicacion: "Bloque A, Piso 1", tipo: "salon", capacidad: 35 },
+    { _id: "SAL-A102", ubicacion: "Bloque A, Piso 1", tipo: "salon", capacidad: 30 },
+    { _id: "SAL-B201", ubicacion: "Bloque B, Piso 2", tipo: "salon", capacidad: 40 },
+    { _id: "SAL-C305", ubicacion: "Bloque C, Piso 3", tipo: "salon", capacidad: 28 },
+
+    { _id: "AUD-PRINC", ubicacion: "Bloque Central, Piso 1", tipo: "auditorio", capacidad: 250 },
+    { _id: "AUD-ING",   ubicacion: "Bloque de Ingeniería, Sótano", tipo: "auditorio", capacidad: 150 },
+    { _id: "AUD-ART",   ubicacion: "Bloque de Arte, Torre 1", tipo: "auditorio", capacidad: 300 },
+    { _id: "AUD-MED",   ubicacion: "Bloque de Medicina, Piso 2", tipo: "auditorio", capacidad: 100 },
+
+    { _id: "LAB-INFO-1", ubicacion: "Bloque Sistemas, Piso 2", tipo: "laboratorio", capacidad: 32 },
+    { _id: "LAB-INFO-2", ubicacion: "Bloque Sistemas, Piso 2", tipo: "laboratorio", capacidad: 28 },
+    { _id: "LAB-QUIM-1", ubicacion: "Bloque Ciencias, Piso 3", tipo: "laboratorio", capacidad: 24 },
+    { _id: "LAB-FIS-1",  ubicacion: "Bloque Ciencias, Piso 2", tipo: "laboratorio", capacidad: 20 },
+    { _id: "LAB-BIO-2",  ubicacion: "Bloque Biología, Piso 1", tipo: "laboratorio", capacidad: 18 },
+
+    { _id: "CAN-FT-EXT", ubicacion: "Zona Deportiva Norte", tipo: "cancha", capacidad: 50 },
+    { _id: "CAN-BKB-1",  ubicacion: "Gimnasio Cubierto", tipo: "cancha", capacidad: 30 },
+    { _id: "CAN-VOL-1",  ubicacion: "Gimnasio Cubierto", tipo: "cancha", capacidad: 24 },
+
+    { _id: "SAL-LING-1", ubicacion: "Bloque de Idiomas, Piso 1", tipo: "salon", capacidad: 25 },
+    { _id: "SAL-ARQ-2",  ubicacion: "Bloque Arquitectura, Piso 4", tipo: "salon", capacidad: 36 }
+], { ordered: true });

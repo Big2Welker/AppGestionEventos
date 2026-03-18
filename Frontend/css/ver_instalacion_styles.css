@@ -1,0 +1,131 @@
+    /* ===== INSTALACIONES ===== */
+
+    .inst-body {
+    min-height: 100vh;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    color: #f8fbff;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.15), transparent 22%),
+        radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.12), transparent 24%),
+        linear-gradient(135deg, #030712, #071226, #0a1830, #0d2240);
+    overflow-x: hidden;
+    position: relative;
+    }
+
+    .inst-page {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 42px 24px 60px;
+    }
+
+    /* HEADER */
+    .inst-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    }
+
+    .inst-kicker {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #9ddcff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    }
+
+    .inst-title {
+    margin: 0 0 8px;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1.5px;
+    }
+
+    .inst-subtitle {
+    margin: 0;
+    color: #c8d4e7;
+    }
+
+    .inst-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    }
+
+    /* PANEL */
+    .inst-panel {
+    padding: 30px;
+    border-radius: 30px;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(18px);
+    }
+
+    /* GRID */
+    .inst-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    }
+
+    /* CARD */
+    .instalacion-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    transition: 0.25s;
+    }
+
+    .instalacion-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 42px rgba(124, 58, 237, 0.18);
+    }
+
+    .instalacion-card h3 {
+    margin: 0 0 12px;
+    color: white;
+    }
+
+    .instalacion-card p,
+    .instalacion-card span,
+    .instalacion-card li {
+    color: #d8e4f6;
+    }
+
+    /* DETAILS */
+    details {
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: #c4b5fd;
+    }
+
+    .vacio {
+    color: #8ea2c0;
+    font-style: italic;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+    .inst-grid {
+        grid-template-columns: 1fr;
+    }
+    }

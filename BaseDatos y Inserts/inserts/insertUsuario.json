@@ -1,0 +1,251 @@
+db.usuario.insertMany([
+    // 1. Estudiante de Ingeniería de Sistemas
+    {
+        _id: 1,
+        nombre: "Juan",
+        apellidos: "Pérez Gómez",
+        email: "juan.perez@uni.edu",
+        telefonos: ["+57 310 111 2233"],
+        password: [
+        {
+            clave: "juan123",
+            fechaCambio: ISODate("2024-01-10T10:00:00Z"),
+            estado: "inactiva"
+        },
+        {
+            clave: "JuanSegura2024",
+            fechaCambio: ISODate("2024-06-01T09:30:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "estudiante",
+            programaId: ObjectId("feb590861fb16bc19e5a0715"), // Ingeniería de Sistemas
+            fecha: ISODate("2024-01-15T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 2. Estudiante de Psicología
+    {
+        _id: 2,
+        nombre: "María",
+        apellidos: "Rodríguez López",
+        email: "maria.rodriguez@uni.edu",
+        telefonos: ["+57 320 222 3344", "+57 1 5556677"],
+        password: [
+        {
+            clave: "maria_psico",
+            fechaCambio: ISODate("2023-11-20T12:00:00Z"),
+            estado: "inactiva"
+        },
+        {
+            clave: "Psico2024!",
+            fechaCambio: ISODate("2024-02-05T08:45:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "estudiante",
+            programaId: ObjectId("894060ea1e32c6f12d16f662"), // Psicología
+            fecha: ISODate("2023-08-01T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 3. Estudiante de Medicina
+    {
+        _id: 3,
+        nombre: "Carlos",
+        apellidos: "Ramírez Peña",
+        email: "carlos.ramirez@uni.edu",
+        telefonos: ["+57 300 333 4455"],
+        password: [
+        {
+            clave: "medcarlos",
+            fechaCambio: ISODate("2023-09-10T14:10:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "estudiante",
+            programaId: ObjectId("dd8be8ae1b944a5793d6dd92"), // Medicina
+            fecha: ISODate("2023-07-20T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 4. Estudiante de Diseño Gráfico
+    {
+        _id: 4,
+        nombre: "Laura",
+        apellidos: "Martínez Castillo",
+        email: "laura.martinez@uni.edu",
+        telefonos: ["+57 315 444 5566"],
+        password: [
+        {
+            clave: "lauraDG",
+            fechaCambio: ISODate("2024-03-03T16:00:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "estudiante",
+            programaId: ObjectId("456e6a96d851197899972477"), // Diseño Gráfico
+            fecha: ISODate("2024-02-01T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 5. Estudiante de Administración de Empresas
+    {
+        _id: 5,
+        nombre: "Andrés",
+        apellidos: "Gómez Suárez",
+        email: "andres.gomez@uni.edu",
+        telefonos: ["+57 301 555 6677"],
+        password: [
+        {
+            clave: "andres_admin",
+            fechaCambio: ISODate("2024-01-25T11:20:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "estudiante",
+            programaId: ObjectId("291ab540cdff40e088f01c0f"), // Administración de Empresas
+            fecha: ISODate("2024-01-20T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 6. Docente del Departamento de Ingeniería de Sistemas
+    {
+        _id: 6,
+        nombre: "Ricardo",
+        apellidos: "Torres Medina",
+        email: "ricardo.torres@uni.edu",
+        telefonos: ["+57 312 666 7788"],
+        password: [
+        {
+            clave: "ricardoIS",
+            fechaCambio: ISODate("2023-10-10T09:00:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "docente",
+            unidadId: ObjectId("866f6508b434f6b4f7757579"), // Dep. Ingeniería de Sistemas
+            fecha: ISODate("2022-02-01T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 7. Docente del Departamento de Psicología
+    {
+        _id: 7,
+        nombre: "Diana",
+        apellidos: "Cifuentes Herrera",
+        email: "diana.cifuentes@uni.edu",
+        telefonos: ["+57 316 777 8899"],
+        password: [
+        {
+            clave: "dianaPsico",
+            fechaCambio: ISODate("2024-04-12T15:30:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "docente",
+            unidadId: ObjectId("656020191e4679ea1bfe9bdd"), // Dep. Psicología
+            fecha: ISODate("2021-08-15T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 8. Docente del Departamento de Economía
+    {
+        _id: 8,
+        nombre: "Felipe",
+        apellidos: "Navarro Rojas",
+        email: "felipe.navarro@uni.edu",
+        telefonos: ["+57 300 888 9900"],
+        password: [
+        {
+            clave: "ecoFelipe",
+            fechaCambio: ISODate("2023-12-01T13:10:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "docente",
+            unidadId: ObjectId("5ae4365b1271b857e37fbe18"), // Dep. Economía
+            fecha: ISODate("2020-01-10T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 9. Secretaria Académica de la Facultad de Ingeniería
+    {
+        _id: 9,
+        nombre: "Paola",
+        apellidos: "Jiménez Duarte",
+        email: "paola.jimenez@uni.edu",
+        telefonos: ["+57 313 999 1100"],
+        password: [
+        {
+            clave: "secIng2024",
+            fechaCambio: ISODate("2024-01-05T09:40:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "secretariaAcademica",
+            facultadId: ObjectId("babd60cfccc129ce65393dc7"), // Facultad de Ingeniería
+            fecha: ISODate("2023-03-01T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    },
+
+    // 10. Secretaria Académica de la Facultad de Ciencias de la Salud
+    {
+        _id: 10,
+        nombre: "Mónica",
+        apellidos: "Salazar Pineda",
+        email: "monica.salazar@uni.edu",
+        telefonos: ["+57 314 000 2211"],
+        password: [
+        {
+            clave: "monicaSalud",
+            fechaCambio: ISODate("2024-02-14T10:15:00Z"),
+            estado: "activa"
+        }
+        ],
+        vinculacion: [
+        {
+            rol: "secretariaAcademica",
+            facultadId: ObjectId("4608459eec4fd4855ec8b1b9"), // Facultad de Ciencias de la Salud
+            fecha: ISODate("2022-09-01T00:00:00Z"),
+            estado: "activo"
+        }
+        ]
+    }
+]);

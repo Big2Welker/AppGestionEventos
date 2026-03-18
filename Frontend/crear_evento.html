@@ -1,0 +1,217 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear evento</title>
+    <link rel="stylesheet" href="css/crear_evento_styles.css">
+    </head>
+    <body class="crear-body">
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <main class="crear-page">
+        <header class="crear-header">
+        <div class="crear-header-copy">
+            <span class="crear-kicker">Gestión de eventos</span>
+            <h1 class="crear-title">Crear evento</h1>
+            <p class="crear-subtitle">
+            Completa la información del evento y organiza cada sección de forma clara.
+            </p>
+        </div>
+
+        <div class="crear-header-actions">
+            <button class="btn-secondary" onclick="window.location.href='menu.html'">← Volver</button>
+            <button class="btn-secondary" onclick="logout()">Cerrar sesión</button>
+        </div>
+        </header>
+
+        <section class="crear-layout">
+
+        <div class="crear-main">
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">01</span>
+                <div>
+                <h3>Datos básicos</h3>
+                <p>Información principal del evento</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="field full">
+                <label for="nombre">Nombre del evento</label>
+                <input id="nombre" placeholder="Escribe el nombre del evento">
+                </div>
+
+                <div class="field">
+                <label for="tipo">Tipo</label>
+                <select id="tipo">
+                    <option value="academico">académico</option>
+                    <option value="ludico">lúdico</option>
+                </select>
+                </div>
+
+                <div class="field">
+                <label for="capacidad">Capacidad del evento</label>
+                <input id="capacidad" type="number" placeholder="Ej: 120" oninput="filtrarInstalacionesPorCapacidad()">
+                </div>
+            </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">02</span>
+                <div>
+                <h3>Realización</h3>
+                <p>Fecha, horario e instalaciones</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="field">
+                <label for="fecha">Fecha</label>
+                <input id="fecha" type="date">
+                </div>
+
+                <div class="field">
+                <label for="horaInicio">Hora de inicio</label>
+                <input id="horaInicio" type="time">
+                </div>
+
+                <div class="field">
+                <label for="horaFin">Hora de fin</label>
+                <input id="horaFin" type="time">
+                </div>
+            </div>
+
+            <div class="subbloque">
+                <div class="subbloque-head">
+                <h4>Instalaciones</h4>
+                <button type="button" class="btn-glow" onclick="agregarSelectorInstalacion()">+ Agregar instalación</button>
+                </div>
+
+                <div id="instalacionesSeleccionadasContainer" class="dynamic-stack"></div>
+            </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">03</span>
+                <div>
+                <h3>Organizador principal</h3>
+                <p>Datos del responsable principal</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="field full">
+                <label for="usuarioPrincipalInfo">Usuario principal</label>
+                <input id="usuarioPrincipalInfo" readonly placeholder="Se llena automáticamente">
+                </div>
+
+                <div class="field">
+                <label for="avalPDFPrincipal">Aval PDF principal</label>
+                <input id="avalPDFPrincipal" placeholder="Ruta, texto o referencia del aval">
+                </div>
+
+                <div class="field">
+                <label for="tipoAvalPrincipal">Tipo de aval</label>
+                <select id="tipoAvalPrincipal">
+                    <option value="directorPrograma">directorPrograma</option>
+                    <option value="directorDocencia">directorDocencia</option>
+                </select>
+                </div>
+            </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">04</span>
+                <div>
+                <h3>Organizadores secundarios</h3>
+                <p>Agrega participantes de apoyo al evento</p>
+                </div>
+            </div>
+
+            <div class="subbloque">
+                <div class="subbloque-head">
+                <h4>Lista de organizadores</h4>
+                <button type="button" class="btn-glow" onclick="agregarOrganizadorSecundario()">+ Agregar organizador</button>
+                </div>
+
+                <div id="organizadoresSecundariosContainer" class="dynamic-stack"></div>
+            </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">05</span>
+                <div>
+                <h3>Organización externa</h3>
+                <p>Información opcional de apoyo externo</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="field">
+                <label for="organizacionId">ObjectId organización</label>
+                <input id="organizacionId" placeholder="ID de la organización">
+                </div>
+
+                <div class="field">
+                <label for="participante">Participante</label>
+                <select id="participante">
+                    <option value="">-- Seleccione participante --</option>
+                    <option value="representanteLegal">Representante Legal</option>
+                    <option value="otro">Otro</option>
+                </select>
+                </div>
+
+                <div class="field">
+                <label for="nombreParticipante">Nombre del participante</label>
+                <input id="nombreParticipante" placeholder="Nombre participante">
+                </div>
+
+                <div class="field full">
+                <label for="certificadoParticipacion">Certificado de participación</label>
+                <input id="certificadoParticipacion" placeholder="Certificado texto/base64">
+                </div>
+            </div>
+            </section>
+        </div>
+
+        <aside class="crear-aside">
+            <section class="aside-card">
+            <span class="aside-kicker">Resumen</span>
+            <h3>Antes de guardar</h3>
+            <p>Revisa que el evento tenga nombre, capacidad, horario e instalaciones asignadas correctamente.</p>
+
+            <div class="aside-tips">
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Verifica la capacidad</span>
+                </div>
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Confirma hora de inicio y fin</span>
+                </div>
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Agrega organizadores necesarios</span>
+                </div>
+            </div>
+
+            <button class="btn-save" onclick="crearEvento()">Guardar evento</button>
+            </section>
+        </aside>
+
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/crear_evento.js"></script>
+    </body>
+    </html>
