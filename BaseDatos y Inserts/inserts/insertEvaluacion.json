@@ -1,0 +1,94 @@
+db.evaluacion.insertMany([
+    // 1) Concierto de Bienvenida – aprobado directamente por Paola (id 9)
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c01"),
+        estado: "aprobado",
+        fechaEvaluacion: ISODate("2025-01-25T10:30:00Z"),
+        // Sin justificacion porque fue aprobado
+        actaAprovacion: BinData(0, "QWN0YUNvbmNpZXJ0b0JpZW52ZW5pZGE="),
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b01"),
+        usuarioId: 9
+    },
+
+    // 2) Seminario de Psicología Clínica – primer intento rechazado por Paola
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c02"),
+        estado: "rechazado",
+        fechaEvaluacion: ISODate("2025-01-30T09:15:00Z"),
+        justificacion: "Se rechaza por información incompleta en el aval del docente y falta de cronograma detallado.",
+        // Sin actaAprovacion porque fue rechazado
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b02"),
+        usuarioId: 9
+    },
+
+    // 3) Seminario de Psicología Clínica – segundo intento, aprobado por Mónica (id 10)
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c03"),
+        estado: "aprobado",
+        fechaEvaluacion: ISODate("2025-02-10T11:00:00Z"),
+        // Sin justificacion porque fue aprobado
+        actaAprovacion: BinData(0, "QWN0YVNlbWluYXJpb1BzaWNvbG9naWFDbGluaWNh"),
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b02"),
+        usuarioId: 10
+    },
+
+    // 4) Torneo de Fútbol – primer rechazo por Mónica
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c04"),
+        estado: "rechazado",
+        fechaEvaluacion: ISODate("2025-02-20T14:45:00Z"),
+        justificacion: "Se rechaza por falta de plan de seguridad y no adjuntar póliza de accidentes deportivos.",
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b03"),
+        usuarioId: 10
+    },
+
+    // 5) Torneo de Fútbol – segundo rechazo por Paola (aún no se aprueba)
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c05"),
+        estado: "rechazado",
+        fechaEvaluacion: ISODate("2025-03-01T09:20:00Z"),
+        justificacion: "Se mantiene el rechazo por no aclarar la disponibilidad de canchas en el horario solicitado.",
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b03"),
+        usuarioId: 9
+    },
+
+    // 6) Laboratorio de Programación Avanzada – aprobado directamente por Paola
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c06"),
+        estado: "aprobado",
+        fechaEvaluacion: ISODate("2025-02-28T16:10:00Z"),
+        actaAprovacion: BinData(0, "QWN0YUxhbkRlUHJvZ3JhbWFjaW9uQXZhbnphZG8="),
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b04"),
+        usuarioId: 9
+    },
+
+    // 7) Simposio de Economía Regional – primer rechazo por Mónica
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c07"),
+        estado: "rechazado",
+        fechaEvaluacion: ISODate("2025-03-05T10:00:00Z"),
+        justificacion: "Se rechaza por no adjuntar las cartas de compromiso de las organizaciones externas.",
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b05"),
+        usuarioId: 10
+    },
+
+    // 8) Simposio de Economía Regional – segundo rechazo, aún pendiente de corrección
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c08"),
+        estado: "rechazado",
+        fechaEvaluacion: ISODate("2025-03-18T09:40:00Z"),
+        justificacion: "Se rechaza nuevamente porque no se especifica la financiación de viáticos para invitados externos.",
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b05"),
+        usuarioId: 9
+    },
+
+    // 9) Segundo intento del Torneo de Fútbol finalmente aprobado por Mónica
+    {
+        _id: ObjectId("775af10b1c1a4d3f9c0a2c09"),
+        estado: "aprobado",
+        fechaEvaluacion: ISODate("2025-04-01T15:30:00Z"),
+        actaAprovacion: BinData(0, "QWN0YVRvcm5lb0Z1dGJvbEludGVyZmFjdWx0YWRlcw=="),
+        eventoId: ObjectId("665af10b1c1a4d3f9c0a1b03"),
+        usuarioId: 10
+    }
+]);

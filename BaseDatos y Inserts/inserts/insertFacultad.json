@@ -1,0 +1,166 @@
+db.facultad.insertMany([
+    {
+        _id: ObjectId("babd60cfccc129ce65393dc7"),
+        nombre: "Facultad de Ingeniería",
+        unidadAcademica: [
+            {
+                unidadId: ObjectId("866f6508b434f6b4f7757579"),
+                nombre: "Departamento de Ingeniería de Sistemas"
+            },
+            {
+                unidadId: ObjectId("17cd743eaf33c0480820b9cf"),
+                nombre: "Departamento de Ingeniería Civil"
+            },
+            {
+                unidadId: ObjectId("aa757ae4634451893dbdb7b8"),
+                nombre: "Departamento de Ingeniería Electrónica"
+            }
+        ],
+        programa: [
+            {
+                programaId: ObjectId("feb590861fb16bc19e5a0715"),
+                nombre: "Ingeniería de Sistemas"
+            },
+            {
+                programaId: ObjectId("93564d30b42e8e2738518460"),
+                nombre: "Ingeniería Civil"
+            },
+            {
+                programaId: ObjectId("a97f4f22ead51297004487e9"),
+                nombre: "Ingeniería Electrónica"
+            },
+            {
+                programaId: ObjectId("789552d334ed4a10a73c55d2"),
+                nombre: "Ingeniería Industrial"
+            },
+            {
+                programaId: ObjectId("c8cad2008957dcd9646f17c2"),
+                nombre: "Ingeniería Mecánica"
+            }
+        ]
+    },
+    {
+        _id: ObjectId("1afc9fc45c4aee0ad3430158"),
+        nombre: "Facultad de Ciencias Sociales y Humanas",
+        unidadAcademica: [
+            {
+                unidadId: ObjectId("ad03118a467e286d2c4b16bf"),
+                nombre: "Departamento de Sociología"
+            },
+            {
+                unidadId: ObjectId("656020191e4679ea1bfe9bdd"),
+                nombre: "Departamento de Psicología"
+            }
+        ],
+        programa: [
+            {
+                programaId: ObjectId("dd064740cb30d5703ab67440"),
+                nombre: "Sociología"
+            },
+            {
+                programaId: ObjectId("894060ea1e32c6f12d16f662"),
+                nombre: "Psicología"
+            },
+            {
+                programaId: ObjectId("c01196a0bfab7537bf4f1d6a"),
+                nombre: "Trabajo Social"
+            }
+        ]
+    },
+    {
+        _id: ObjectId("4608459eec4fd4855ec8b1b9"),
+        nombre: "Facultad de Ciencias de la Salud",
+        unidadAcademica: [
+            {
+                unidadId: ObjectId("3ed8877a35a5ac47b2d12045"),
+                nombre: "Escuela de Medicina"
+            },
+            {
+                unidadId: ObjectId("ce0eaf94064079874bcd8b32"),
+                nombre: "Escuela de Enfermería"
+            },
+            {
+                unidadId: ObjectId("0476b60fe41375899296415b"),
+                nombre: "Escuela de Fisioterapia"
+            },
+            {
+                unidadId: ObjectId("1ee92cf0bfe199f9fb261a36"),
+                nombre: "Escuela de Nutrición y Dietética"
+            }
+        ],
+        programa: [
+            {
+                programaId: ObjectId("dd8be8ae1b944a5793d6dd92"),
+                nombre: "Medicina"
+            },
+            {
+                programaId: ObjectId("e980d7632d6d12fc3a847e54"),
+                nombre: "Enfermería"
+            },
+            {
+                programaId: ObjectId("1d5f3e6dff4a1a61bb17caf7"),
+                nombre: "Fisioterapia"
+            },
+            {
+                programaId: ObjectId("c55efeed6427b5878fe729df"),
+                nombre: "Nutrición y Dietética"
+            }
+        ]
+    },
+    {
+        _id: ObjectId("e5774960b03933f5976f66cf"),
+        nombre: "Facultad de Artes y Diseño",
+        unidadAcademica: [
+            {
+                unidadId: ObjectId("194b7bcf4e52344b21239e5d"),
+                nombre: "Escuela de Artes Plásticas"
+            }
+        ],
+        programa: [
+            {
+                programaId: ObjectId("5922fb911599168309e70e7f"),
+                nombre: "Artes Plásticas"
+            },
+            {
+                programaId: ObjectId("456e6a96d851197899972477"),
+                nombre: "Diseño Gráfico"
+            }
+        ]
+    },
+    {
+        _id: ObjectId("0774add59ee9afcc18667781"),
+        nombre: "Facultad de Ciencias Económicas y Administrativas",
+        unidadAcademica: [
+            {
+                unidadId: ObjectId("5ae4365b1271b857e37fbe18"),
+                nombre: "Departamento de Economía"
+            },
+            {
+                unidadId: ObjectId("72c9a6138fa4f83150f1fb25"),
+                nombre: "Departamento de Administración"
+            },
+            {
+                unidadId: ObjectId("0e97bb9e1b2b15ecb9ea7b70"),
+                nombre: "Departamento de Contaduría"
+            }
+        ],
+        programa: [
+            {
+                programaId: ObjectId("8ed25861e736ae0df6c6e7b6"),
+                nombre: "Economía"
+            },
+            {
+                programaId: ObjectId("291ab540cdff40e088f01c0f"),
+                nombre: "Administración de Empresas"
+            },
+            {
+                programaId: ObjectId("93905622104c5b19b7a4b75c"),
+                nombre: "Contaduría Pública"
+            },
+            {
+                programaId: ObjectId("e46d82430bece8bdb8fe0460"),
+                nombre: "Negocios Internacionales"
+            }
+        ]
+    }
+]);

@@ -1,0 +1,215 @@
+db.evento.insertMany([
+  // 1. Concierto de Bienvenida (lúdico, gran auditorio, sin separar salones)
+    {
+        _id: ObjectId("665af10b1c1a4d3f9c0a1b01"),
+        nombre: "Concierto de Bienvenida",
+        estado: "aprovado",
+        tipo: "ludico",
+        realizacion: {
+        instalaciones: [
+            {
+            instalacionId: "AUD-ART", // capacidad real: 300
+            capacidadInstalacion: 220 // usamos 220 < 300
+            }
+        ],
+        fecha: ISODate("2025-02-10T00:00:00Z"),
+        horaInicio: "18:00",
+        horaFin: "21:30"
+        },
+        organizador: [
+        {
+            usuarioId: 6, // Ricardo (docente Ing. Sistemas)
+            avalPDF: BinData(0, "QXZhbERvY3VtZW50Q29uY2llcnRvMQ=="),
+            tipoAval: "directorDocencia",
+            tipo: "principal"
+        },
+        {
+            usuarioId: 4, // Laura (estudiante Diseño Gráfico)
+            avalPDF: BinData(0, "QXZhbERvY3VtZW50Q29uY2llcnRvMg=="),
+            tipoAval: "directorPrograma",
+            tipo: "secundario"
+        }
+        ],
+        organizacion: [
+        {
+            organizacionId: ObjectId("65af10b1c1a4d3f9c0a1a001"), // TechNova Solutions
+            participante: "otro",
+            nombreParticipante: "Equipo de Relaciones Públicas de TechNova",
+            certificadoParticipacion: BinData(0, "Q2VydGlmaWNhZG9Db25jaWVydG8x")
+        }
+        ],
+        capacidad: 220 // igual a la capacidad total asignada en instalaciones
+    },
+
+    // 2. Seminario de Psicología Clínica (académico, auditorio mediano)
+    {
+        _id: ObjectId("665af10b1c1a4d3f9c0a1b02"),
+        nombre: "Seminario de Psicología Clínica",
+        estado: "enRevision",
+        tipo: "academico",
+        realizacion: {
+        instalaciones: [
+            {
+            instalacionId: "AUD-MED", // capacidad real: 100
+            capacidadInstalacion: 90   // usamos 90 <= 100
+            }
+        ],
+        fecha: ISODate("2025-03-05T00:00:00Z"),
+        horaInicio: "08:00",
+        horaFin: "12:00"
+        },
+        organizador: [
+        {
+            usuarioId: 7, // Diana (docente Psicología)
+            avalPDF: BinData(0, "U2VtaW5hcmlvUGNpc29sb2dpYUNsaW5pY2Ex"),
+            tipoAval: "directorDocencia",
+            tipo: "principal"
+        },
+        {
+            usuarioId: 2, // María (estudiante Psicología)
+            avalPDF: BinData(0, "U2VtaW5hcmlvUGNpc29sb2dpYUNsaW5pY2Ey"),
+            tipoAval: "directorPrograma",
+            tipo: "secundario"
+        }
+        ],
+        organizacion: [
+        {
+            organizacionId: ObjectId("65af10b1c1a4d3f9c0a1a006"), // SaludVida IPS
+            participante: "representanteLegal",
+            nombreParticipante: "Laura Martínez",
+            certificadoParticipacion: BinData(0, "Q2VydGlmaWNhZG9TZW1pbmFyaW9TYWx1ZA==")
+        }
+        ],
+        capacidad: 90 // coherente con la instalación
+    },
+
+    // 3. Torneo Relámpago de Fútbol (lúdico, varias canchas)
+    {
+        _id: ObjectId("665af10b1c1a4d3f9c0a1b03"),
+        nombre: "Torneo Relámpago de Fútbol Interfacultades",
+        estado: "registrado",
+        tipo: "ludico",
+        realizacion: {
+        instalaciones: [
+            {
+            instalacionId: "CAN-FT-EXT", // 50
+            capacidadInstalacion: 40
+            },
+            {
+            instalacionId: "CAN-BKB-1", // 30
+            capacidadInstalacion: 20
+            },
+            {
+            instalacionId: "CAN-VOL-1", // 24
+            capacidadInstalacion: 10
+            }
+        ],
+        fecha: ISODate("2025-04-20T00:00:00Z"),
+        horaInicio: "09:00",
+        horaFin: "17:00"
+        },
+        organizador: [
+        {
+            usuarioId: 1, // Juan (estudiante Ing. Sistemas)
+            avalPDF: BinData(0, "VG9ybmVvRnV0Ym9sSW50ZXJmYWN1bHRhZGVzMQ=="),
+            tipoAval: "directorPrograma",
+            tipo: "principal"
+        },
+        {
+            usuarioId: 3, // Carlos (estudiante Medicina)
+            avalPDF: BinData(0, "VG9ybmVvRnV0Ym9sSW50ZXJmYWN1bHRhZGVzMg=="),
+            tipoAval: "directorPrograma",
+            tipo: "secundario"
+        }
+        ],
+        // En este caso no hay organizaciones externas asociadas
+        capacidad: 70 // 40 + 20 + 10 = 70
+    },
+
+    // 4. Laboratorio de Programación Avanzada (académico, labs de informática)
+    {
+        _id: ObjectId("665af10b1c1a4d3f9c0a1b04"),
+        nombre: "Laboratorio de Programación Avanzada",
+        estado: "aprovado",
+        tipo: "academico",
+        realizacion: {
+        instalaciones: [
+            {
+            instalacionId: "LAB-INFO-1", // 32
+            capacidadInstalacion: 30
+            },
+            {
+            instalacionId: "LAB-INFO-2", // 28
+            capacidadInstalacion: 25
+            }
+        ],
+        fecha: ISODate("2025-03-18T00:00:00Z"),
+        horaInicio: "14:00",
+        horaFin: "18:00"
+        },
+        organizador: [
+        {
+            usuarioId: 6, // Ricardo (docente Ing. Sistemas)
+            avalPDF: BinData(0, "TGFiUHJvZ3JhbWFjaW9uQXZhbERvY2VudGU="),
+            tipoAval: "directorDocencia",
+            tipo: "principal"
+        },
+        {
+            usuarioId: 1, // Juan (estudiante Ing. Sistemas)
+            avalPDF: BinData(0, "TGFiUHJvZ3JhbWFjaW9uQXZhbERpcmVjdG9yUHJvZ3JhbWE="),
+            tipoAval: "directorPrograma",
+            tipo: "secundario"
+        }
+        ],
+        // Evento puramente interno, sin organización externa
+        capacidad: 55 // 30 + 25 = 55
+    },
+
+    // 5. Simposio de Economía Regional (académico, auditorio mediano con organización externa)
+    {
+        _id: ObjectId("665af10b1c1a4d3f9c0a1b05"),
+        nombre: "Simposio de Economía Regional y Desarrollo",
+        estado: "enRevision",
+        tipo: "academico",
+        realizacion: {
+        instalaciones: [
+            {
+            instalacionId: "AUD-ING", // capacidad real: 150
+            capacidadInstalacion: 120 // usamos 120 <= 150
+            }
+        ],
+        fecha: ISODate("2025-05-08T00:00:00Z"),
+        horaInicio: "08:30",
+        horaFin: "17:30"
+        },
+        organizador: [
+        {
+            usuarioId: 8, // Felipe (docente Economía)
+            avalPDF: BinData(0, "U2ltcG9zaW9FY29ub21pYUF2YWxEb2NlbnRl"),
+            tipoAval: "directorDocencia",
+            tipo: "principal"
+        },
+        {
+            usuarioId: 5, // Andrés (estudiante Adm. Empresas)
+            avalPDF: BinData(0, "U2ltcG9zaW9FY29ub21pYUF2YWxEaXJlY3RvclByb2dyYW1h"),
+            tipoAval: "directorPrograma",
+            tipo: "secundario"
+        }
+        ],
+        organizacion: [
+        {
+            organizacionId: ObjectId("65af10b1c1a4d3f9c0a1a005"), // Finanzas Globales SAS
+            participante: "representanteLegal",
+            nombreParticipante: "Ricardo Quintero",
+            certificadoParticipacion: BinData(0, "Q2VydGlmaWNhZG9GaW5hbnphc0dsb2JhbGVz")
+        },
+        {
+            organizacionId: ObjectId("65af10b1c1a4d3f9c0a1a009"), // Energía del Norte
+            participante: "otro",
+            nombreParticipante: "Equipo de Análisis Económico de Energía del Norte",
+            certificadoParticipacion: BinData(0, "Q2VydGlmaWNhZG9FbmVyZ2lhUmVnaW9uYWw=")
+        }
+        ],
+        capacidad: 120 // coherente con la instalación
+    }
+]);

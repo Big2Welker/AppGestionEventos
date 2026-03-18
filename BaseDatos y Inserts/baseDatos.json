@@ -1,0 +1,474 @@
+use EventoAcademico;
+
+db.createCollection("evento", {
+    "capped": false,
+    "validator": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "title": "evento",
+            "properties": {
+                "_id": {
+                    "bsonType": "objectId"
+                },
+                "nombre": {
+                    "bsonType": "string"
+                },
+                "estado": {
+                    "bsonType": "string",
+                    "enum": [
+                        "registrado",
+                        "enRevision",
+                        "aprovado"
+                    ]
+                },
+                "tipo": {
+                    "bsonType": "string",
+                    "enum": [
+                        "ludico",
+                        "academico"
+                    ]
+                },
+                "realizacion": {
+                    "bsonType": "object",
+                    "properties": {
+                        "instalaciones": {
+                            "bsonType": "array",
+                            "additionalItems": true,
+                            "items": {
+                                "bsonType": "object",
+                                "properties": {
+                                    "instalacionId": {
+                                        "bsonType": "string"
+                                    },
+                                    "capacidadInstalacion": {
+                                        "bsonType": "int"
+                                    }
+                                },
+                                "additionalProperties": false,
+                                "required": [
+                                    "instalacionId",
+                                    "capacidadInstalacion"
+                                ]
+                            }
+                        },
+                        "fecha": {
+                            "bsonType": "date"
+                        },
+                        "horaInicio": {
+                            "bsonType": "string"
+                        },
+                        "horaFin": {
+                            "bsonType": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "instalaciones",
+                        "fecha",
+                        "horaInicio",
+                        "horaFin"
+                    ]
+                },
+                "organizador": {
+                    "bsonType": "array",
+                    "additionalItems": true,
+                    "items": {
+                        "bsonType": "object",
+                        "properties": {
+                            "usuarioId": {
+                                "bsonType": "int",
+                                "description": "El ID debe ser de estudiante o docente"
+                            },
+                            "avalPDF": {
+                                "bsonType": "binData"
+                            },
+                            "tipoAval": {
+                                "bsonType": "string",
+                                "enum": [
+                                    "directorPrograma",
+                                    "directorDocencia"
+                                ]
+                            },
+                            "tipo": {
+                                "bsonType": "string",
+                                "enum": [
+                                    "principal",
+                                    "secundario"
+                                ]
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "usuarioId",
+                            "avalPDF",
+                            "tipoAval",
+                            "tipo"
+                        ]
+                    }
+                },
+                "organizacion": {
+                    "bsonType": "array",
+                    "additionalItems": true,
+                    "items": {
+                        "bsonType": "object",
+                        "properties": {
+                            "organizacionId": {
+                                "bsonType": "objectId"
+                            },
+                            "participante": {
+                                "bsonType": "string",
+                                "enum": [
+                                    "representanteLegal",
+                                    "otro"
+                                ]
+                            },
+                            "nombreParticipante": {
+                                "bsonType": "string"
+                            },
+                            "certificadoParticipacion": {
+                                "bsonType": "binData"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "organizacionId",
+                            "participante",
+                            "nombreParticipante",
+                            "certificadoParticipacion"
+                        ]
+                    }
+                },
+                "capacidad": {
+                    "bsonType": "int"
+                }
+            },
+            "additionalProperties": true,
+            "required": [
+                "_id",
+                "nombre",
+                "estado",
+                "tipo",
+                "realizacion",
+                "organizador",
+                "capacidad"
+            ]
+        }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "error"
+});
+
+
+
+
+db.createCollection("instalacion", {
+    "capped": false,
+    "validator": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "title": "instalacion",
+            "properties": {
+                "_id": {
+                    "bsonType": "string"
+                },
+                "ubicacion": {
+                    "bsonType": "string"
+                },
+                "tipo": {
+                    "bsonType": "string",
+                    "enum": [
+                        "salon",
+                        "auditorio",
+                        "laboratorio",
+                        "cancha"
+                    ]
+                },
+                "capacidad": {
+                    "bsonType": "int"
+                }
+            },
+            "additionalProperties": true,
+            "required": [
+                "_id",
+                "ubicacion",
+                "tipo",
+                "capacidad"
+            ]
+        }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "error"
+});
+
+
+
+
+db.createCollection("usuario", {
+    "capped": false,
+    "validator": {
+        "$jsonSchema": {
+        "bsonType": "object",
+        "title": "usuario",
+        "required": [
+            "_id",
+            "nombre",
+            "apellidos",
+            "email",
+            "telefonos",
+            "password",
+            "vinculacion"
+        ],
+        "properties": {
+            "_id": { "bsonType": "int" },
+            "nombre": { "bsonType": "string" },
+            "apellidos": { "bsonType": "string" },
+            "email": { "bsonType": "string" },
+            "telefonos": {
+            "bsonType": "array",
+            "items": { "bsonType": "string" },
+            "additionalItems": true
+            },
+            "password": {
+            "bsonType": "array",
+            "items": {
+                "bsonType": "object",
+                "required": ["clave", "fechaCambio", "estado"],
+                "properties": {
+                "clave": { "bsonType": "string" },
+                "fechaCambio": { "bsonType": "date" },
+                "estado": {
+                    "bsonType": "string",
+                    "enum": ["activa", "inactiva"]
+                }
+                },
+                "additionalProperties": false
+            },
+            "additionalItems": true
+            },
+            "vinculacion": {
+            "bsonType": "array",
+            "additionalItems": true,
+            "items": {
+                "bsonType": "object",
+                "required": ["rol"],
+                "properties": {
+                "rol": {
+                    "bsonType": "string",
+                    "enum": ["estudiante", "docente", "secretariaAcademica"]
+                },
+                "programaId": { "bsonType": "objectId" },
+                "unidadId": { "bsonType": "objectId" },
+                "facultadId": { "bsonType": "objectId" },
+                "fecha": { "bsonType": "date" },
+                "estado": { "bsonType": "string",
+                        "enum": ["activo", "inactivo"]
+                        },
+                },
+                "additionalProperties": false,
+                "oneOf": [
+                {
+                    "properties": { "rol": { "enum": ["estudiante"] } },
+                    "required": ["rol", "programaId"]
+                },
+                {
+                    "properties": { "rol": { "enum": ["docente"] } },
+                    "required": ["rol", "unidadId"]
+                },
+                {
+                    "properties": { "rol": { "enum": ["secretariaAcademica"] } },
+                    "required": ["rol", "facultadId"]
+                }
+                ]
+            }
+            }
+        },
+        "additionalProperties": true
+        }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "error"
+});
+
+
+
+
+db.createCollection("facultad", {
+    "capped": false,
+    "validator": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "title": "facultad",
+            "properties": {
+                "_id": {
+                    "bsonType": "objectId"
+                },
+                "nombre": {
+                    "bsonType": "string"
+                },
+                "unidadAcademica": {
+                    "bsonType": "array",
+                    "additionalItems": true,
+                    "items": {
+                        "bsonType": "object",
+                        "properties": {
+                            "unidadId": {
+                                "bsonType": "objectId"
+                            },
+                            "nombre": {
+                                "bsonType": "string"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "unidadId",
+                            "nombre"
+                        ]
+                    }
+                },
+                "programa": {
+                    "bsonType": "array",
+                    "additionalItems": true,
+                    "items": {
+                        "bsonType": "object",
+                        "properties": {
+                            "programaId": {
+                                "bsonType": "objectId"
+                            },
+                            "nombre": {
+                                "bsonType": "string"
+                            }
+                        },
+                        "additionalProperties": false,
+                        "required": [
+                            "programaId",
+                            "nombre"
+                        ]
+                    }
+                }
+            },
+            "additionalProperties": true,
+            "required": [
+                "_id",
+                "nombre",
+                "unidadAcademica",
+                "programa"
+            ]
+        }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "error"
+});
+
+
+
+
+db.createCollection("organizacion", {
+    "capped": false,
+    "validator": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "title": "organizacion",
+            "properties": {
+                "_id": {
+                    "bsonType": "objectId"
+                },
+                "nombre": {
+                    "bsonType": "string"
+                },
+                "representanteLegal": {
+                    "bsonType": "string"
+                },
+                "ubicacion": {
+                    "bsonType": "object",
+                    "properties": {
+                        "direccion": {
+                            "bsonType": "string"
+                        },
+                        "ciudad": {
+                            "bsonType": "string"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "required": [
+                        "direccion",
+                        "ciudad"
+                    ]
+                },
+                "sectorEconomico": {
+                    "bsonType": "string"
+                },
+                "actividadPrincipal": {
+                    "bsonType": "string"
+                },
+                "telefonos": {
+                    "bsonType": "array",
+                    "additionalItems": true,
+                    "items": {
+                        "bsonType": "string"
+                    }
+                }
+            },
+            "additionalProperties": true,
+            "required": [
+                "_id",
+                "nombre",
+                "representanteLegal",
+                "ubicacion",
+                "sectorEconomico",
+                "actividadPrincipal",
+                "telefonos"
+            ]
+        }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "error"
+});
+
+
+
+
+db.createCollection("evaluacion", {
+    "capped": false,
+    "validator": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "title": "evaluacion",
+            "properties": {
+                "_id": {
+                    "bsonType": "objectId"
+                },
+                "estado": {
+                    "bsonType": "string",
+                    "enum": [
+                        "aprobado",
+                        "rechazado"
+                    ]
+                },
+                "fechaEvaluacion": {
+                    "bsonType": "date"
+                },
+                "justificacion": {
+                    "bsonType": "string"
+                },
+                "actaAprovacion": {
+                    "bsonType": "binData"
+                },
+                "eventoId": {
+                    "bsonType": "objectId"
+                },
+                "usuarioId": {
+                    "bsonType": "int"
+                }
+            },
+            "additionalProperties": true,
+            "required": [
+                "estado",
+                "fechaEvaluacion",
+                "eventoId",
+                "usuarioId"
+            ]
+        }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "error"
+});

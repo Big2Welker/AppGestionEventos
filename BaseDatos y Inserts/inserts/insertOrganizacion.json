@@ -1,0 +1,122 @@
+db.organizacion.insertMany([
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a001"),
+        nombre: "TechNova Solutions",
+        representanteLegal: "Carlos Martínez",
+        ubicacion: {
+            direccion: "Av. Libertad 120",
+            ciudad: "Bogotá"
+        },
+        sectorEconomico: "Tecnología",
+        actividadPrincipal: "Desarrollo de software y servicios TI",
+        telefonos: ["+57 310 555 7890", "+57 1 4567890"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a002"),
+        nombre: "AgroCampo S.A.",
+        representanteLegal: "María Fernanda Ríos",
+        ubicacion: {
+            direccion: "Km 18, Vía a Cajicá",
+            ciudad: "Cajicá"
+        },
+        sectorEconomico: "Agroindustria",
+        actividadPrincipal: "Producción y procesamiento agrícola",
+        telefonos: ["+57 320 111 2233"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a003"),
+        nombre: "Constructora Andes",
+        representanteLegal: "Jorge Ramírez",
+        ubicacion: {
+            direccion: "Calle 34 #15-22",
+            ciudad: "Medellín"
+        },
+        sectorEconomico: "Construcción",
+        actividadPrincipal: "Construcción de infraestructura y viviendas",
+        telefonos: ["+57 300 998 1122", "+57 604 5566777"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a004"),
+        nombre: "EcoVerde Ltda.",
+        representanteLegal: "Ana Lucia Pérez",
+        ubicacion: {
+            direccion: "Carrera 20 #45-12",
+            ciudad: "Cali"
+        },
+        sectorEconomico: "Ambiental",
+        actividadPrincipal: "Consultoría y manejo ambiental",
+        telefonos: ["+57 315 771 0044"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a005"),
+        nombre: "Finanzas Globales SAS",
+        representanteLegal: "Ricardo Quintero",
+        ubicacion: {
+            direccion: "Calle 12 #5-60",
+            ciudad: "Barranquilla"
+        },
+        sectorEconomico: "Financiero",
+        actividadPrincipal: "Asesoría financiera y contable",
+        telefonos: ["+57 301 789 4560"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a006"),
+        nombre: "SaludVida IPS",
+        representanteLegal: "Laura Martínez",
+        ubicacion: {
+            direccion: "Av. Central 98",
+            ciudad: "Pereira"
+        },
+        sectorEconomico: "Salud",
+        actividadPrincipal: "Servicios médicos especializados",
+        telefonos: ["+57 310 333 9900"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a007"),
+        nombre: "TransLogísticos",
+        representanteLegal: "Hernando Torres",
+        ubicacion: {
+            direccion: "Calle 7 #23-40",
+            ciudad: "Manizales"
+        },
+        sectorEconomico: "Logística",
+        actividadPrincipal: "Transporte y distribución de mercancías",
+        telefonos: ["+57 317 441 2233"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a008"),
+        nombre: "Educare Foundation",
+        representanteLegal: "Sandra Cifuentes",
+        ubicacion: {
+            direccion: "Calle 45 #21-11",
+            ciudad: "Bogotá"
+        },
+        sectorEconomico: "Educación",
+        actividadPrincipal: "Proyectos educativos y sociales",
+        telefonos: ["+57 310 220 9988"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a009"),
+        nombre: "Energía del Norte",
+        representanteLegal: "Luis Delgado",
+        ubicacion: {
+            direccion: "Carrera 10 #45-09",
+            ciudad: "Santa Marta"
+        },
+        sectorEconomico: "Energía",
+        actividadPrincipal: "Distribución y mantenimiento energético",
+        telefonos: ["+57 322 987 0090"]
+    },
+    {
+        _id: ObjectId("65af10b1c1a4d3f9c0a1a00a"),
+        nombre: "Artesanías del Sur",
+        representanteLegal: "Mónica Herrera",
+        ubicacion: {
+            direccion: "Carrera 33 #10-55",
+            ciudad: "Popayán"
+        },
+        sectorEconomico: "Manufactura",
+        actividadPrincipal: "Producción de artesanías y productos regionales",
+        telefonos: ["+57 314 550 7788"]
+    }
+]);
