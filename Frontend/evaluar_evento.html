@@ -1,0 +1,49 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluar eventos</title>
+    <link rel="stylesheet" href="css/evaluar_evento_styles.css">
+    </head>
+    <body class="evaluar-body">
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <main class="evaluar-page">
+        <header class="evaluar-header">
+        <div class="evaluar-header-copy">
+            <span class="evaluar-kicker">Gestión de eventos</span>
+            <h1 class="evaluar-title">Evaluar eventos</h1>
+            <p class="evaluar-subtitle">
+            Revisa solicitudes, analiza la información y registra la evaluación del evento.
+            </p>
+        </div>
+
+        <div class="evaluar-header-actions">
+            <button class="btn-secondary" onclick="window.location.href='menu.html'">← Volver</button>
+            <button class="btn-secondary" onclick="logout()">Cerrar sesión</button>
+        </div>
+        </header>
+
+        <section class="evaluar-panel">
+        <div class="evaluar-toolbar">
+            <input
+            type="text"
+            id="buscador"
+            class="buscador-pro"
+            placeholder="Buscar por nombre..."
+            onkeyup="filtrarEventos()"
+            >
+        </div>
+
+        <div id="contenedorEventos" class="evaluar-grid"></div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/evaluar_evento.js"></script>
+    </body>
+    </html>

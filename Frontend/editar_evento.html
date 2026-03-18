@@ -1,0 +1,241 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar evento</title>
+    <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body class="editar-body">
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <main class="editar-page">
+        <header class="editar-header">
+        <div class="editar-header-copy">
+            <span class="editar-kicker">Gestión de eventos</span>
+            <h1 class="editar-title">Editar evento</h1>
+            <p class="editar-subtitle">
+            Busca un evento por su ID y actualiza su información sin cambiar la lógica actual.
+            </p>
+        </div>
+
+        <div class="editar-header-actions">
+            <button class="btn-secondary" onclick="window.location.href='menu.html'">← Volver</button>
+            <button class="btn-secondary" onclick="logout()">Cerrar sesión</button>
+        </div>
+        </header>
+
+        <section class="editar-layout">
+        <div class="editar-main">
+
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">01</span>
+                <div>
+                <h3>Buscar evento por ID</h3>
+                <p>Ingresa el identificador del evento para cargar la información actual.</p>
+                </div>
+            </div>
+
+            <div class="buscar-box">
+                <div class="field buscar-field">
+                <label for="buscarId">ID del evento</label>
+                <input id="buscarId" placeholder="Ingrese el ID del evento">
+                </div>
+
+                <button class="btn-glow buscar-btn" onclick="buscarEvento()">Buscar evento</button>
+            </div>
+            </section>
+
+            <form id="formEditar" class="editar-form" style="display:none;">
+            <section class="grupo grupo-pro">
+                <div class="grupo-head">
+                <span class="grupo-tag">02</span>
+                <div>
+                    <h3>Datos básicos</h3>
+                    <p>Edita nombre, estado, tipo y capacidad del evento.</p>
+                </div>
+                </div>
+
+                <div class="form-grid">
+                <div class="field full">
+                    <label for="nombre">Nombre del evento</label>
+                    <input id="nombre" placeholder="Nombre del evento">
+                </div>
+
+                <div class="field">
+                    <label for="estado">Estado</label>
+                    <select id="estado">
+                    <option value="registrado">registrado</option>
+                    <option value="enRevision">enRevision</option>
+                    <option value="aprovado">aprovado</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="tipo">Tipo</label>
+                    <select id="tipo">
+                    <option value="academico">academico</option>
+                    <option value="ludico">ludico</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="capacidad">Capacidad</label>
+                    <input id="capacidad" type="number" placeholder="Capacidad">
+                </div>
+                </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+                <div class="grupo-head">
+                <span class="grupo-tag">03</span>
+                <div>
+                    <h3>Realización</h3>
+                    <p>Actualiza instalación, capacidad disponible y horario del evento.</p>
+                </div>
+                </div>
+
+                <div class="form-grid">
+                <div class="field">
+                    <label for="instalacionId">ID instalación</label>
+                    <input id="instalacionId" placeholder="ID instalación">
+                </div>
+
+                <div class="field">
+                    <label for="capacidadInstalacion">Capacidad instalación</label>
+                    <input id="capacidadInstalacion" type="number" placeholder="Capacidad instalación">
+                </div>
+
+                <div class="field">
+                    <label for="fecha">Fecha</label>
+                    <input id="fecha" type="date">
+                </div>
+
+                <div class="field">
+                    <label for="horaInicio">Hora de inicio</label>
+                    <input id="horaInicio" type="time">
+                </div>
+
+                <div class="field">
+                    <label for="horaFin">Hora de fin</label>
+                    <input id="horaFin" type="time">
+                </div>
+                </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+                <div class="grupo-head">
+                <span class="grupo-tag">04</span>
+                <div>
+                    <h3>Organizador</h3>
+                    <p>Edita los datos del organizador y su tipo de aval.</p>
+                </div>
+                </div>
+
+                <div class="form-grid">
+                <div class="field">
+                    <label for="usuarioId">ID usuario</label>
+                    <input id="usuarioId" type="number" placeholder="ID usuario">
+                </div>
+
+                <div class="field">
+                    <label for="avalPDF">Aval PDF</label>
+                    <input id="avalPDF" placeholder="Aval PDF">
+                </div>
+
+                <div class="field">
+                    <label for="tipoAval">Tipo de aval</label>
+                    <select id="tipoAval">
+                    <option value="directorPrograma">directorPrograma</option>
+                    <option value="directorDocencia">directorDocencia</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="tipoOrganizador">Tipo de organizador</label>
+                    <select id="tipoOrganizador">
+                    <option value="principal">principal</option>
+                    <option value="secundario">secundario</option>
+                    </select>
+                </div>
+                </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+                <div class="grupo-head">
+                <span class="grupo-tag">05</span>
+                <div>
+                    <h3>Organización externa</h3>
+                    <p>Completa esta sección solo si aplica al evento.</p>
+                </div>
+                </div>
+
+                <div class="form-grid">
+                <div class="field">
+                    <label for="organizacionId">ObjectId organización</label>
+                    <input id="organizacionId" placeholder="ObjectId organización">
+                </div>
+
+                <div class="field">
+                    <label for="participante">Participante</label>
+                    <select id="participante">
+                    <option value="">-- Seleccione participante --</option>
+                    <option value="representanteLegal">representanteLegal</option>
+                    <option value="otro">otro</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="nombreParticipante">Nombre participante</label>
+                    <input id="nombreParticipante" placeholder="Nombre participante">
+                </div>
+
+                <div class="field full">
+                    <label for="certificadoParticipacion">Certificado participación</label>
+                    <input id="certificadoParticipacion" placeholder="Certificado participación">
+                </div>
+                </div>
+            </section>
+
+            <div class="editar-submit-wrap">
+                <button type="button" class="btn-save" onclick="actualizarEvento()">Guardar cambios</button>
+            </div>
+            </form>
+
+        </div>
+
+        <aside class="editar-aside">
+            <section class="aside-card">
+            <span class="aside-kicker">Edición</span>
+            <h3>Consejo rápido</h3>
+            <p>
+                Busca primero el evento, revisa sus datos cargados y luego modifica solo lo necesario para evitar inconsistencias.
+            </p>
+
+            <div class="aside-tips">
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Verifica el ID correcto</span>
+                </div>
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Confirma horario y capacidad</span>
+                </div>
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Revisa el organizador</span>
+                </div>
+            </div>
+            </section>
+        </aside>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/editar_evento.js"></script>
+    </body>
+    </html>

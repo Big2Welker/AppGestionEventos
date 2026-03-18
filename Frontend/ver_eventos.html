@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver eventos</title>
+    <link rel="stylesheet" href="css/ver_evento_styles.css">
+    </head>
+    <body class="events-body">
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <main class="events-page">
+        <header class="events-header">
+        <div class="events-title-wrap">
+            <span class="events-kicker">Panel de eventos</span>
+            <h1 class="events-title">Eventos</h1>
+            <p class="events-subtitle">Explora y gestiona los eventos registrados</p>
+        </div>
+
+        <div class="events-actions">
+            <button class="btn-secondary" onclick="window.location.href='menu.html'">← Volver</button>
+            <button class="btn-secondary" onclick="logout()">Cerrar sesión</button>
+        </div>
+        </header>
+
+        <section class="events-panel">
+        <div class="events-toolbar">
+            <input
+            type="text"
+            id="buscador"
+            class="buscador-pro"
+            placeholder="Buscar evento por nombre..."
+            onkeyup="filtrarEventos()"
+            >
+        </div>
+
+        <div id="contenedorEventos" class="eventos-grid"></div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/ver_eventos.js"></script>
+    </body>
+    </html>

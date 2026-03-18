@@ -1,0 +1,49 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar evento</title>
+    <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body class="eliminar-body">
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <main class="eliminar-page">
+        <header class="eliminar-header">
+        <div class="eliminar-header-copy">
+            <span class="eliminar-kicker">Gestión de eventos</span>
+            <h1 class="eliminar-title">Eliminar eventos</h1>
+            <p class="eliminar-subtitle">
+            Busca eventos por nombre y elimina únicamente los que realmente necesites quitar.
+            </p>
+        </div>
+
+        <div class="eliminar-header-actions">
+            <button class="btn-secondary" onclick="window.location.href='menu.html'">← Volver</button>
+            <button class="btn-secondary" onclick="logout()">Cerrar sesión</button>
+        </div>
+        </header>
+
+        <section class="eliminar-panel">
+        <div class="eliminar-toolbar">
+            <input
+            type="text"
+            id="buscador"
+            class="buscador-pro"
+            placeholder="Buscar por nombre..."
+            onkeyup="filtrarEventos()"
+            >
+        </div>
+
+        <div id="contenedorEventos" class="eliminar-grid"></div>
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/eliminar_evento.js"></script>
+    </body>
+    </html>

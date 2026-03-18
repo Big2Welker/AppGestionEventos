@@ -1,0 +1,42 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Instalaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ver_instalacion_styles.css">
+    </head>
+
+    <body class="inst-body">
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <main class="inst-page">
+
+        <!-- HEADER -->
+        <header class="inst-header">
+        <div>
+            <span class="inst-kicker">Panel de instalaciones</span>
+            <h1 class="inst-title">Instalaciones</h1>
+            <p class="inst-subtitle">Consulta el uso y disponibilidad de las instalaciones</p>
+        </div>
+
+        <div class="inst-actions">
+            <button class="btn-secondary" onclick="window.location.href='menu.html'">← Volver</button>
+            <button class="btn-secondary" onclick="logout()">Cerrar sesión</button>
+        </div>
+        </header>
+
+        <!-- PANEL -->
+        <section class="inst-panel">
+        <div id="contenedorInstalaciones" class="inst-grid"></div>
+        </section>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/ver_instalaciones.js"></script>
+    </body>
+    </html>

@@ -1,0 +1,281 @@
+    /* ===== EVALUAR EVENTOS ===== */
+
+    .evaluar-body {
+    min-height: 100vh;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    color: #f8fbff;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(124, 58, 237, 0.15), transparent 22%),
+        radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.12), transparent 24%),
+        linear-gradient(135deg, #030712, #071226, #0a1830, #0d2240);
+    overflow-x: hidden;
+    position: relative;
+    }
+
+    .evaluar-page {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 42px 24px 60px;
+    }
+
+    .evaluar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+    }
+
+    .evaluar-kicker {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #b7f3d0;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    }
+
+    .evaluar-title {
+    margin: 0 0 10px;
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    line-height: 0.95;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1.5px;
+    text-shadow:
+        0 8px 24px rgba(16, 185, 129, 0.18),
+        0 0 40px rgba(6, 182, 212, 0.08);
+    }
+
+    .evaluar-subtitle {
+    margin: 0;
+    max-width: 760px;
+    color: #c8d4e7;
+    font-size: 1.04rem;
+    line-height: 1.7;
+    }
+
+    .evaluar-header-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    }
+
+    .evaluar-panel {
+    position: relative;
+    overflow: hidden;
+    padding: 30px;
+    border-radius: 30px;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04)),
+        radial-gradient(circle at top right, rgba(16,185,129,0.08), transparent 28%);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    }
+
+    .evaluar-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(120deg, rgba(255,255,255,0.05), transparent 35%, transparent 65%, rgba(255,255,255,0.03));
+    pointer-events: none;
+    }
+
+    .evaluar-toolbar {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+    }
+
+    .evaluar-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+    }
+
+    /* Cards generadas por JS */
+    .evaluar-grid .evento-card,
+    #contenedorEventos .evento-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+
+    .evaluar-grid .evento-card:hover,
+    #contenedorEventos .evento-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 42px rgba(16, 185, 129, 0.16);
+    border-color: rgba(255,255,255,0.16);
+    }
+
+    .evaluar-grid .evento-card h3,
+    #contenedorEventos .evento-card h3 {
+    margin: 0 0 14px;
+    color: white;
+    font-size: 1.18rem;
+    font-weight: 800;
+    }
+
+    .evaluar-grid .evento-card p,
+    .evaluar-grid .evento-card li,
+    .evaluar-grid .evento-card span,
+    #contenedorEventos .evento-card p,
+    #contenedorEventos .evento-card li,
+    #contenedorEventos .evento-card span {
+    color: #d8e4f6;
+    }
+
+    .evaluar-grid .evento-card strong,
+    #contenedorEventos .evento-card strong {
+    color: white;
+    }
+
+    /* Form inputs dentro de cada card */
+    .evaluar-grid .evento-card input,
+    .evaluar-grid .evento-card select,
+    .evaluar-grid .evento-card textarea,
+    #contenedorEventos .evento-card input,
+    #contenedorEventos .evento-card select,
+    #contenedorEventos .evento-card textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    padding: 14px 15px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(9, 16, 29, 0.72);
+    color: white;
+    outline: none;
+    font-size: 0.98rem;
+    transition: all 0.22s ease;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .evaluar-grid .evento-card input::placeholder,
+    .evaluar-grid .evento-card textarea::placeholder,
+    #contenedorEventos .evento-card input::placeholder,
+    #contenedorEventos .evento-card textarea::placeholder {
+    color: #8ea2c0;
+    }
+
+    .evaluar-grid .evento-card input:focus,
+    .evaluar-grid .evento-card select:focus,
+    .evaluar-grid .evento-card textarea:focus,
+    #contenedorEventos .evento-card input:focus,
+    #contenedorEventos .evento-card select:focus,
+    #contenedorEventos .evento-card textarea:focus {
+    border-color: rgba(16, 185, 129, 0.7);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.12);
+    transform: translateY(-1px);
+    background: rgba(11, 19, 34, 0.92);
+    }
+
+    .evaluar-grid .evento-card textarea,
+    #contenedorEventos .evento-card textarea {
+    min-height: 110px;
+    resize: vertical;
+    }
+
+    /* botones dentro de card */
+    .evaluar-grid .evento-card button,
+    #contenedorEventos .evento-card button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 6px;
+    border: none;
+    border-radius: 16px;
+    padding: 12px 16px;
+    cursor: pointer;
+    color: white;
+    font-weight: 800;
+    background: linear-gradient(135deg, #059669, #34d399);
+    box-shadow: 0 12px 28px rgba(5, 150, 105, 0.28);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+    }
+
+    .evaluar-grid .evento-card button:hover,
+    #contenedorEventos .evento-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 34px rgba(5, 150, 105, 0.34);
+    filter: brightness(1.05);
+    }
+
+    /* details */
+    .evaluar-grid .evento-card details,
+    #contenedorEventos .evento-card details {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .evaluar-grid .evento-card summary,
+    #contenedorEventos .evento-card summary {
+    cursor: pointer;
+    font-weight: 800;
+    color: #9df0c9;
+    list-style: none;
+    }
+
+    .evaluar-grid .evento-card summary::-webkit-details-marker,
+    #contenedorEventos .evento-card summary::-webkit-details-marker {
+    display: none;
+    }
+
+    .evaluar-grid .evento-card summary::after,
+    #contenedorEventos .evento-card summary::after {
+    content: "▾";
+    float: right;
+    transition: transform 0.2s ease;
+    }
+
+    .evaluar-grid .evento-card details[open] summary::after,
+    #contenedorEventos .evento-card details[open] summary::after {
+    transform: rotate(180deg);
+    }
+
+    @media (max-width: 768px) {
+    .evaluar-page {
+        padding: 24px 16px 36px;
+    }
+
+    .evaluar-title {
+        font-size: 2.8rem;
+        letter-spacing: -1px;
+    }
+
+    .evaluar-panel {
+        padding: 20px 16px;
+        border-radius: 24px;
+    }
+
+    .evaluar-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .evaluar-header-actions {
+        width: 100%;
+    }
+
+    .evaluar-header-actions button {
+        flex: 1;
+    }
+    }

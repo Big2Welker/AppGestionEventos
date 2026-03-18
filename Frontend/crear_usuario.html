@@ -1,0 +1,222 @@
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear usuario</title>
+    <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body class="usuario-body">
+
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <main class="usuario-page">
+        <header class="usuario-header">
+        <div class="usuario-header-copy">
+            <span class="usuario-kicker">Gestión de usuarios</span>
+            <h1 class="usuario-title">Crear usuario</h1>
+            <p class="usuario-subtitle">
+            Registra un nuevo usuario y asigna su vinculación académica según el rol correspondiente.
+            </p>
+        </div>
+
+        <div class="usuario-header-actions">
+            <button class="btn-secondary" onclick="window.location.href='menu.html'">← Volver</button>
+            <button class="btn-secondary" onclick="logout()">Cerrar sesión</button>
+        </div>
+        </header>
+
+        <section class="usuario-layout">
+
+        <div class="usuario-main">
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">01</span>
+                <div>
+                <h3>Datos básicos</h3>
+                <p>Información principal del nuevo usuario.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="field">
+                <label for="idUsuario">ID del usuario</label>
+                <input id="idUsuario" type="number" placeholder="ID del usuario">
+                </div>
+
+                <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" placeholder="Nombre">
+                </div>
+
+                <div class="field">
+                <label for="apellidos">Apellidos</label>
+                <input id="apellidos" placeholder="Apellidos">
+                </div>
+
+                <div class="field">
+                <label for="email">Correo electrónico</label>
+                <input id="email" placeholder="Correo electrónico">
+                </div>
+
+                <div class="field">
+                <label for="telefono">Teléfono</label>
+                <input id="telefono" placeholder="Teléfono">
+                </div>
+            </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">02</span>
+                <div>
+                <h3>Contraseña</h3>
+                <p>Define la clave de acceso inicial del usuario.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="field full">
+                <label for="clave">Clave</label>
+                <input id="clave" placeholder="Clave">
+                </div>
+            </div>
+            </section>
+
+            <section class="grupo grupo-pro">
+            <div class="grupo-head">
+                <span class="grupo-tag">03</span>
+                <div>
+                <h3>Vinculación</h3>
+                <p>Selecciona el rol y completa los datos académicos relacionados.</p>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="field full">
+                <label for="rol">Rol</label>
+                <select id="rol" onchange="mostrarCamposRol()">
+                    <option value="">Seleccione rol</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="docente">Docente</option>
+                    <option value="secretariaAcademica">Secretaría Académica</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="dynamic-stack usuario-stack">
+                <details id="bloquePrograma" style="display:none;">
+                <summary>Seleccionar programa académico</summary>
+
+                <div class="details-body">
+                    <label for="programaSelect">Programa académico</label>
+                    <select id="programaSelect" onchange="asignarProgramaId()">
+                    <option value="">Seleccione programa</option>
+                    <option value="feb590861fb16bc19e5a0715">Ingeniería de Sistemas</option>
+                    <option value="93564d30b42e8e2738518460">Ingeniería Civil</option>
+                    <option value="a97f4f22ead51297004487e9">Ingeniería Electrónica</option>
+                    <option value="789552d334ed4a10a73c55d2">Ingeniería Industrial</option>
+                    <option value="c8cad2008957dcd9646f17c2">Ingeniería Mecánica</option>
+                    <option value="dd064740cb30d5703ab67440">Sociología</option>
+                    <option value="894060ea1e32c6f12d16f662">Psicología</option>
+                    <option value="c01196a0bfab7537bf4f1d6a">Trabajo Social</option>
+                    <option value="dd8be8ae1b944a5793d6dd92">Medicina</option>
+                    <option value="e980d7632d6d12fc3a847e54">Enfermería</option>
+                    <option value="1d5f3e6dff4a1a61bb17caf7">Fisioterapia</option>
+                    <option value="c55efeed6427b5878fe729df">Nutrición y Dietética</option>
+                    <option value="5922fb911599168309e70e7f">Artes Plásticas</option>
+                    <option value="456e6a96d851197899972477">Diseño Gráfico</option>
+                    <option value="8ed25861e736ae0df6c6e7b6">Economía</option>
+                    <option value="291ab540cdff40e088f01c0f">Administración de Empresas</option>
+                    <option value="93905622104c5b19b7a4b75c">Contaduría Pública</option>
+                    <option value="e46d82430bece8bdb8fe0460">Negocios Internacionales</option>
+                    </select>
+
+                    <label for="programaId">programaId</label>
+                    <input id="programaId" placeholder="programaId" readonly>
+                </div>
+                </details>
+
+                <details id="bloqueUnidad" style="display:none;">
+                <summary>Seleccionar unidad académica</summary>
+
+                <div class="details-body">
+                    <label for="unidadSelect">Unidad académica</label>
+                    <select id="unidadSelect" onchange="asignarUnidadId()">
+                    <option value="">Seleccione unidad</option>
+                    <option value="866f6508b434f6b4f7757579">Departamento de Ingeniería de Sistemas</option>
+                    <option value="17cd743eaf33c0480820b9cf">Departamento de Ingeniería Civil</option>
+                    <option value="aa757ae4634451893dbdb7b8">Departamento de Ingeniería Electrónica</option>
+                    <option value="ad03118a467e286d2c4b16bf">Departamento de Sociología</option>
+                    <option value="656020191e4679ea1bfe9bdd">Departamento de Psicología</option>
+                    <option value="3ed8877a35a5ac47b2d12045">Escuela de Medicina</option>
+                    <option value="ce0eaf94064079874bcd8b32">Escuela de Enfermería</option>
+                    <option value="0476b60fe41375899296415b">Escuela de Fisioterapia</option>
+                    <option value="1ee92cf0bfe199f9fb261a36">Escuela de Nutrición y Dietética</option>
+                    <option value="194b7bcf4e52344b21239e5d">Escuela de Artes Plásticas</option>
+                    <option value="5ae4365b1271b857e37fbe18">Departamento de Economía</option>
+                    <option value="72c9a6138fa4f83150f1fb25">Departamento de Administración</option>
+                    <option value="0e97bb9e1b2b15ecb9ea7b70">Departamento de Contaduría</option>
+                    </select>
+
+                    <label for="unidadId">unidadId</label>
+                    <input id="unidadId" placeholder="unidadId" readonly>
+                </div>
+                </details>
+
+                <details id="bloqueFacultad" style="display:none;">
+                <summary>Seleccionar facultad</summary>
+
+                <div class="details-body">
+                    <label for="facultadSelect">Facultad</label>
+                    <select id="facultadSelect" onchange="asignarFacultadId()">
+                    <option value="">Seleccione facultad</option>
+                    <option value="babd60cfccc129ce65393dc7">Facultad de Ingeniería</option>
+                    <option value="1afc9fc45c4aee0ad3430158">Facultad de Ciencias Sociales y Humanas</option>
+                    <option value="4608459eec4fd4855ec8b1b9">Facultad de Ciencias de la Salud</option>
+                    <option value="e5774960b03933f5976f66cf">Facultad de Artes y Diseño</option>
+                    <option value="0774add59ee9afcc18667781">Facultad de Ciencias Económicas y Administrativas</option>
+                    </select>
+
+                    <label for="facultadId">facultadId</label>
+                    <input id="facultadId" placeholder="facultadId" readonly>
+                </div>
+                </details>
+            </div>
+            </section>
+        </div>
+
+        <aside class="usuario-aside">
+            <section class="aside-card usuario-aside-card">
+            <span class="aside-kicker">Registro</span>
+            <h3>Antes de guardar</h3>
+            <p>Verifica que el rol corresponda con la estructura académica seleccionada y que el correo esté correcto.</p>
+
+            <div class="aside-tips">
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Confirma ID y nombre</span>
+                </div>
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Revisa correo y teléfono</span>
+                </div>
+                <div class="tip-item">
+                <span class="tip-dot"></span>
+                <span>Valida programa, unidad o facultad</span>
+                </div>
+            </div>
+
+            <button class="btn-save usuario-save" onclick="crearUsuario()">Guardar usuario</button>
+            </section>
+        </aside>
+
+        </section>
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/crear_usuario.js"></script>
+    </body>
+    </html>
